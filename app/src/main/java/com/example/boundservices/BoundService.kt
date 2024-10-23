@@ -23,4 +23,9 @@ class BoundService : Service() {
         return binder
     }
 
+    override fun onUnbind(intent: Intent?): Boolean {
+        println("BoundService: onUnbind")
+        return super.onUnbind(intent)
+    }
+
 }

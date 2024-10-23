@@ -140,4 +140,9 @@ class MainActivity : ComponentActivity() {
             messengerBound = false
         }
     }
+
+    override fun onPause() {
+        println("Activity paused.")
+        super.onPause()
+    }
 }

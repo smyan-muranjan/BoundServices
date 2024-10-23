@@ -8,10 +8,7 @@ import android.os.IBinder
 import android.os.Looper
 import android.os.Message
 import android.os.Messenger
-import android.view.ContextMenu
 import android.widget.Toast
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.time.delay
 
 class MessengerService : Service() {
 
@@ -39,6 +36,11 @@ class MessengerService : Service() {
         println("MessengerService: onBind")
         messenger = Messenger(IncomingHandler(this))
         return messenger.binder
+    }
+
+    override fun onUnbind(intent: Intent?): Boolean {
+        println("MessengerService: onUnbind")
+        return super.onUnbind(intent)
     }
 
     companion object Actions {
